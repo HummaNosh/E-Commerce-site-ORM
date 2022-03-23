@@ -5,18 +5,45 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // get all products
 router.get('/', (req, res) => {
+  // HN
   // find all products
   // be sure to include its associated Category and Tag data
-});
+    const ProductStuff = await Product.findAll().catch((err) => { 
+      res.json(err);
+    });
+      const prod = ProductStuff.map((Product) => Product.get({ plain: true }));
+      res.render('all', { prod });
+    });
+
 
 // get one product
 router.get('/:id', (req, res) => {
+  // HN
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
+  try{ 
+    const ProductStuff = await Product.findByPk(req.params.id);
+
+    if(!ProductStuff) {
+        res.status(404).json({message: 'No product with this id!'});
+        return;
+    }
+    const prod = ProductStuff.get({ plain: true });
+    res.render('prod', prod);
+  } catch (err) {
+      res.status(500).json(err);
+  };     
 });
 
 // create new product
 router.post('/', (req, res) => {
+  try { 
+    const dishData = await Dish.create({
+    product_name: req.body.product_name,
+    price: req.body.price,
+    stock: req.body.stock,
+    // why Tag ids????
+  });
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -44,8 +71,12 @@ router.post('/', (req, res) => {
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
-    });
-});
+    })
+
+  } catch (err) {
+      res.status(500).json(err);
+  };   
+}); 
 
 // update product
 router.put('/:id', (req, res) => {

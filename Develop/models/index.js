@@ -7,12 +7,15 @@ const ProductTag = require('./ProductTag');
 // Products belongsTo Category
 
 // added below hn
-Products.belongsToMany(Category)
+Product.belongsTo(Category, {
+  foreignKey: 'product_id',
+  // havent referenced it yet hn
+})
 
 // Categories have many Products
 
 // WHATS SOMETHING
-Category.something(Product, {
+Category.hasMany(Product, {
 
 })
 // Products belongToMany Tags (through ProductTag)
@@ -25,6 +28,7 @@ Product.belongsToMany(Tag, {
 }),
 
 // Tags belongToMany Products (through ProductTag)
+
 // added below what to put inside???????????????is the through right?
 Tag.belongsToMany(Product, {
   through: {
