@@ -9,7 +9,7 @@ const ProductTag = require('./ProductTag');
 // added below hn
 Product.belongsTo(Category, {
   foreignKey: 'product_id',
-  // havent referenced it yet hn
+  // havent referenced it yet on products hn
 })
 
 // Categories have many Products
