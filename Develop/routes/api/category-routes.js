@@ -50,8 +50,20 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-});
+  Category.update(req.body, {
+      id: req.params.id,
 
+  }).then ((Category) => {
+    Category.findByPk(req.params.id, {
+      include: [{model: Product}]
+    }).then(res => {
+      res.status(200).json(res)
+    })
+  }).catch((err) => {
+    res.status(400).json(err);
+  });
+});
+   
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
   try {

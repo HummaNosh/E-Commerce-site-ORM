@@ -9,7 +9,7 @@ router.get ('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
   try {
-    const ProductStuff = await Product.findAll({
+    const ProductStuff = Product.findAll({
       include: [{ model: Category }],
     });
     res.status(200).json(ProductStuff);
@@ -39,13 +39,13 @@ router.get('/:id', (req, res) => {
 
 // create new product
 router.post('/', (req, res) => {
-  try { 
-    const dishData =  Dish.create({
-    product_name: req.body.product_name,
-    price: req.body.price,
-    stock: req.body.stock,
+ 
+    // =  Product.create({
+    // product_name: req.body.product_name,
+    // price: req.body.price,
+    // stock: req.body.stock,
     // why Tag ids????
-  });
+  // });
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -54,7 +54,8 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
-  Product.create(req.body)
+    try { 
+      const ProductStuff = Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
@@ -126,7 +127,7 @@ router.delete('/:id', (req, res) => {
   // HN
   // delete one product by its `id` value
   try {
-    const ProductStuff = await Product.destroy({
+    const ProductStuff = Product.destroy({
       where: {
         id: req.params.id,
       },

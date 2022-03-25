@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
   try {
-    const TagStuff = await Tag.findAll({
+    const TagStuff = Tag.findAll({
       include: [{ model: Reader }],
     });
     res.status(200).json(TagStuff);
@@ -46,8 +46,17 @@ router.post('/', (req, res) => {
   }
   });
 
-  // TO DOO THIS HAVENT COVERED UPDATE yet
+
 router.put('/:id', (req, res) => {
+
+  Tag.update(req.body, {
+    where: {
+      id: req.body.id,
+    },
+  })
+  .then ((updatedTag) => {
+    res.json(updatedTag);
+  }) .catch((err) => res.json(err));
   // update a tag's name by its `id` value
 
 });
