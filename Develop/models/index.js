@@ -14,32 +14,25 @@ Product.belongsTo(Category, {
 
 // Categories have many Products
 
-// WHATS SOMETHING
+
 Category.hasMany(Product, {
+  foreignKey: 'category_id',
 
 })
 // Products belongToMany Tags (through ProductTag)
 
-//should i put unique in?product_id key??
+
 Product.belongsToMany(Tag, {
-  through: {
-  model: ProductTag,
-  },
-}),
+  through: ProductTag,
+  foreignKey: 'product_id',
+  }),
 
 // Tags belongToMany Products (through ProductTag)
 
-// added below what to put inside???????????????is the through right?
 Tag.belongsToMany(Product, {
-  through: {
-    model:ProductTag
-  },
-}),
-
-
-
-
-
+  through: Product,
+  foreignKey: 'tag_id',
+  });
 
 
 module.exports = {
