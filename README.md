@@ -1,4 +1,4 @@
-# 13 Object-Relational Mapping (ORM): E-Commerce Back End
+# Object-Relational Mapping (ORM): E-Commerce Back End
 
 ## Purpose
 The purpose of this project is to build the back end of an e-commerce site using Express.Js API, node.js, Sequelize, MySQL, and more!
@@ -26,6 +26,7 @@ WHEN I open API GET routes in Insomnia for categories, products, or tags
 THEN the data for each of these routes is displayed in a formatted JSON
 WHEN I test API POST, PUT, and DELETE routes in Insomnia
 
+```
 ## Walk-through Videos
 
 # Start Up 
