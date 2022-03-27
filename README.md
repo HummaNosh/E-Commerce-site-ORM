@@ -29,18 +29,18 @@ WHEN I test API POST, PUT, and DELETE routes in Insomnia
 ```
 ## Walk-through Videos
 
-# Start Up 
+### Start Up 
 
 https://drive.google.com/file/d/1WFjyd1p1qBcm8rfpvy30c0poxRXNC9uj/view?usp=sharing
 
-# GET
+### GET
 
 https://drive.google.com/file/d/1NXjdRow6Vd_1_Jz5l-6aJdKDkXjld8k-/view?usp=sharing
 
-# POST
+### POST
 
-# PUT
+### PUT
 
-# DELETE 
+### DELETE 
 
 https://drive.google.com/file/d/1gSHcgKBqgKrxMYvyG9ODL1eemRoqBwAN/view?usp=sharing
