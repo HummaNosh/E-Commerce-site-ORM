@@ -63,6 +63,7 @@ router.post('/', async (req, res) => {
             tag_id,
           };
         });
+        res.status(200).json({product, message: "Good job! A new product has been created!"});
         return ProductTag.bulkCreate(productTagIdArr);
       }
   
