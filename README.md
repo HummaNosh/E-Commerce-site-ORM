@@ -39,7 +39,11 @@ https://drive.google.com/file/d/1NXjdRow6Vd_1_Jz5l-6aJdKDkXjld8k-/view?usp=shari
 
 ### POST
 
+https://drive.google.com/file/d/1DDRfZbBqto47PZuEzuw4YFXx54_VJYV2/view?usp=sharing
+
 ### PUT
+
+https://drive.google.com/file/d/11DXMUlZPjTT9b7gthN45WuDtUTdWdGnc/view?usp=sharing
 
 ### DELETE 
 
